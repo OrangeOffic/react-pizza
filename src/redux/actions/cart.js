@@ -45,3 +45,10 @@ export const deletePizza = (id) => {
         payload: id
     }
 }
+
+export const setCart = (items) => {
+    return {
+        type: 'SET_CART',
+        payload: items
+    }
+}

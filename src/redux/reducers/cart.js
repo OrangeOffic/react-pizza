@@ -87,6 +87,19 @@ const cart = (state = initialState, action) => {
                 totalPrice: [].concat.apply([], Object.values(newItemsFromId)).reduce((total, obj) => total + obj.price, 0),
                 totalCount: [].concat.apply([], Object.values(newItemsFromId)).length
             }
+        case 'SET_CART':
+
+            const setItems = {
+                ...state.items,
+                ...action.payload
+            }
+
+            return {
+                ...state,
+                items: setItems,
+                totalPrice: [].concat.apply([], Object.values(setItems)).reduce((total, obj) => total + obj.price, 0),
+                totalCount: [].concat.apply([], Object.values(setItems)).length
+            }
         default: {
             return state
         }
