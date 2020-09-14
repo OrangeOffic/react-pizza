@@ -1,15 +1,20 @@
+
 import React from 'react'
 
-const Button = (props) => {
+const Button = ({className, outline, add, onClick, children}) => {
 
     const cls = [
         'button',
-        props.outline && 'button--outline',
-        props.add && 'button--add'
+        className,
+        outline && 'button--outline',
+        add && 'button--add'
     ]
 
     return (
-        <div className={cls.join(' ')}>{props.children}</div>
+        <button
+            className={cls.join(' ')}
+            onClick={onClick}
+        >{children}</button>
     )
 }
 
